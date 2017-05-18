@@ -1,0 +1,19 @@
+{
+  "name": "webpack-study",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node ./build/webpack.config.js"
+  },
+  "author": "cjs",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^0.28.1",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "rimraf": "^2.6.1",
+    "style-loader": "^0.17.0",
+    "webpack": "^2.5.1",
+    "webpack-merge": "^4.1.0"
+  }
+}
