@@ -1,1 +1,6 @@
-module.exports = 1
+var my = require('./my')
+
+module.exports = {
+  a: 2,
+  // my: my
+}
