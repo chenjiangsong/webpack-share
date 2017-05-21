@@ -48,6 +48,10 @@ var webpackConfig = {
             return module.context && module.context.indexOf('node_modules') !== -1
           }
       }),
+      // new webpack.optimize.CommonsChunkPlugin({
+      //   name: 'manifest',
+      //   chunks: ['vendor']
+      // }),
       new WebpackAssetsManifest()
   ]
 }
