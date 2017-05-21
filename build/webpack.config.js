@@ -4,6 +4,8 @@ var webpack = require('webpack')
 var merge = require('webpack-merge')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var Manifest = require('webpack-manifest-plugin')
+var WebpackAssetsManifest = require('webpack-assets-manifest')
 
 function resolve(dir) {
   return path.resolve(dir)
@@ -15,9 +17,9 @@ var webpackConfig = {
     bundle: resolve('./src/index'),
     // hehe: resolve('./src/hehe'),
     // test: resolve('./src/test'),
-    // vendor: [
-    //   resolve('./src/global')
-    // ]
+    vendor: [
+      resolve('./src/global')
+    ]
   },
   output: {
     path: resolve('./dist/'),
@@ -41,11 +43,12 @@ var webpackConfig = {
       }),
       new ExtractTextPlugin('styles.css'),
       new webpack.optimize.CommonsChunkPlugin({
-          name: 'vendor', // 指定公共 bundle 的名字。
+          name: ['vendor'], // 指定公共 bundle 的名字。
           minChunks: function(module, count) {
             return module.context && module.context.indexOf('node_modules') !== -1
           }
-      })
+      }),
+      new WebpackAssetsManifest()
   ]
 }
 
